@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "baseUrl": "src",
+    "target":"ES2015",
+    "moduleResolution": "node",
+    "declaration": true,
+    "inlineSources": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "types": [
+      "node"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
