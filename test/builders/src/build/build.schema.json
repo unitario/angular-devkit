@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "properties": {
+    "debug": {
+      "default": false,
+      "type": "boolean",
+      "description": "Adds more details to output logging."
+    },
+    "watch": {
+      "default": false,
+      "type": "boolean",
+      "description": "Run build when files change."
+    },
+    "css": {
+      "default": false,
+      "type": "boolean",
+      "description": "Finds all scss files in project and bundles into a single css bundle."
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "outDir": "./out-tsc/spec",
+    "types": ["jest", "node"],
+    "typeRoots": ["node_modules/@types"]
+  },
+  "files": ["src/polyfills.ts"],
+  "include": ["src/**/*.spec.ts", "src/**/*.d.ts"],
+  "exclude": ["**/*.spec.snap.ts"]
+}

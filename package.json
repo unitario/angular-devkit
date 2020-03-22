@@ -4,23 +4,34 @@
   "description": "Software Development Kit for Angular developed by Unitario",
   "main": "dist/index.js",
   "license": "MIT",
-  "private": false,
+  "homepage": "https://github.com/unitario/angular-devkit",
+  "bugs": "https://github.com/unitario/angular-devkit/issues",
+  "repository": {
+    "url": "https://github.com/unitario/angular-devkit",
+    "type": "git"
+  },
+  "author": {
+    "name": "unitario",
+    "email": "stefan.astrand@unitar.io",
+    "url": "https://www.unitar.io"
+  },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc src/**/*.ts",
     "test": "jest",
-    "lint": "eslint"
+    "lint": "eslint src/**/*.ts --fix "
   },
   "dependencies": {
+    "@angular-devkit/architect": "^0.900.7",
+    "@angular-devkit/core": "^9.0.7",
     "chalk": "^3.0.0",
     "ora": "^4.0.3",
+    "ramda": "^0.27.0",
     "rxjs": "^6.5.4"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "^0.900.7",
-    "@angular-devkit/core": "^9.0.7",
     "@types/node": "^13.9.2",
     "@types/ramda": "^0.26.44",
-    "@unitario/eslint-config": "^1.0.0",
+    "@unitario/eslint-config": "^1.0.8",
     "eslint": "^6.8.0",
     "jest": "^25.1.0",
     "prettier": "^2.0.1",

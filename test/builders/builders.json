@@ -1,0 +1,9 @@
+{
+  "builders": {
+    "build": {
+      "implementation": "./dist/build/build",
+      "schema": "./src/build/build.schema.json",
+      "description": "Builds an application or library"
+    }
+  }
+}
