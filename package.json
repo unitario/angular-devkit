@@ -5,6 +5,11 @@
   "main": "dist/index.js",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint"
+  },
   "dependencies": {
     "chalk": "^3.0.0",
     "ora": "^4.0.3",
@@ -14,7 +19,15 @@
     "@angular-devkit/architect": "^0.900.7",
     "@angular-devkit/core": "^9.0.7",
     "@types/node": "^13.9.2",
+    "@types/ramda": "^0.26.44",
     "@unitario/eslint-config": "^1.0.0",
+    "eslint": "^6.8.0",
+    "jest": "^25.1.0",
+    "prettier": "^2.0.1",
     "typescript": "^3.8.3"
+  },
+  "enginesStrict": true,
+  "engines": {
+    "node": ">=10"
   }
 }
