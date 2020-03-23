@@ -1,20 +1,24 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "sourceRoot": "./src",
-    "target":"ES2015",
+    "baseUrl": "./",
+    "outDir": "dist",
+    "sourceRoot": "src",
+    "target":"es2015",
     "moduleResolution": "node",
     "declaration": true,
-    "skipDefaultLibCheck": true,
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "types": [
       "node",
-      "ramda"
-    ]
+      "ramda",
+      "jest"
+    ],
   },
   "exclude": [
     "node_modules",
-    "dist",
-    "test"
+    "__tests__",
+    "dist"
   ]
 }

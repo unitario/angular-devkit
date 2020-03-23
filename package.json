@@ -16,9 +16,18 @@
     "url": "https://www.unitar.io"
   },
   "scripts": {
-    "build": "tsc src/**/*.ts",
+    "clean": "yarn run remove && yarn run create && echo 'Clean completed'.",
+    "remove": "yarn run remove:package && yarn run remove:test && echo 'Remove completed.'",
+    "remove:test": "rm -f -r __tests__/builders/node_modules && rm -f -r ./__tests__/builders/dist && rm -f -r __tests__/builders-app/dist && rm -f -r __tests__/builders-app/node_modules && echo 'Test resources removed.'",
+    "remove:package": "rm -f -r ./dist && rm -f -r node_modules && echo 'Package resources removed.'",
+    "create": "yarn run create:package && yarn run build:package && yarn run create:test && yarn run build:test && echo 'Create completed.'",
+    "create:test": "cd __tests__/builders && yarn install --silent && cd ../builders-app && yarn install --silent && echo 'Test resources created'",
+    "create:package": "yarn install --silent && echo 'Package resources created.'",
+    "build": "yarn run build:package && yarn run build:test",
+    "build:test": "tsc --p ./__tests__/builders/tsconfig.json && echo 'Test project build completed.'",
+    "build:package": "tsc --p ./tsconfig.json && echo 'Package build completed.'",
     "test": "jest",
-    "lint": "eslint src/**/*.ts --fix "
+    "lint": "eslint **/*.ts --fix "
   },
   "dependencies": {
     "@angular-devkit/architect": "^0.900.7",
@@ -26,15 +35,17 @@
     "chalk": "^3.0.0",
     "ora": "^4.0.3",
     "ramda": "^0.27.0",
-    "rxjs": "^6.5.4"
+    "rxjs": "6.5.3"
   },
   "devDependencies": {
+    "@types/jest": "^25.1.4",
     "@types/node": "^13.9.2",
     "@types/ramda": "^0.26.44",
     "@unitario/eslint-config": "^1.0.8",
     "eslint": "^6.8.0",
     "jest": "^25.1.0",
     "prettier": "^2.0.1",
+    "ts-jest": "^25.2.1",
     "typescript": "^3.8.3"
   },
   "enginesStrict": true,

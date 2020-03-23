@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "properties": {
+    "debug": {
+      "default": false,
+      "type": "boolean",
+      "description": "Adds more details to output logging."
+    }
+  }
+}

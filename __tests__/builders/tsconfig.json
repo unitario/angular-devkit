@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "baseUrl": "tsconfig",
+    "outDir": "dist",
+    "sourceRoot": "src",
+    "target": "es6",
+    "declaration": true,
+    "allowJs": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "types": ["node", "jest"]
+  },
+  "exclude": [
+    "**/*.spec.ts",
+    "dist"
+  ]
+}

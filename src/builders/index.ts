@@ -2,7 +2,7 @@ import { BuilderContext, BuilderOutput } from '@angular-devkit/architect'
 import { JsonObject } from '@angular-devkit/core'
 import { cyan, dim } from 'chalk'
 import * as cluster from 'cluster'
-import * as ora from 'ora'
+import ora from 'ora'
 import { is } from 'ramda'
 import { from, Observable, of, OperatorFunction, ReplaySubject, Subscription } from 'rxjs'
 import { catchError, finalize, first, map, pluck, switchMap } from 'rxjs/operators'
@@ -41,15 +41,15 @@ export type BuilderCallback = (context: Context) => BuilderOutput | Promise<Buil
 /**
  * Builders provided to `builderHandler`
  */
-export type Builders = OperatorFunction<Context, Context & BuilderOutput>[]
+export type Builders = OperatorFunction<Context, Context>[]
 
 /**
  * Takes a list of builder tasks, executes them in sequence and returns a `BuilderOutput` observable. The builder output will only return `success: true` if all tasks has resolved without error.
  * @param builderMessage Message to print when the builder is initialized
  * @param builders List of build tasks to be executed in this builder context
  */
-export const builderHandler = (builderMessage: string, ...builders: Builders) => {
-  return <T>(options: Options & T, context: BuilderContext): Observable<BuilderOutput> => {
+export const builderHandler = (builderMessage: string, builders: Builders) => {
+  return (options: Options, context: BuilderContext): Observable<BuilderOutput> => {
     if (IS_SINGLE_CPU) {
       context.logger.info(`Builder is running on a single-core processing unit. Switching to single-threaded mode.`)
     }
@@ -95,13 +95,13 @@ export const builderHandler = (builderMessage: string, ...builders: Builders) =>
 
 /**
  * Shedules a build run for a specific builder target, logs the process of that build and returns an observable function which wraps a `Context` object
+ * @param builderMessage Message to print when the builder is either initalized or completed
  * @param builder The name of a builder, i.e. its `package:builderName` tuple, or a builder callback function
  * @param builderOptions Additional options passed to the builder
- * @param builderMessage Message to print when the builder is either initalized or completed
  */
 export const scheduleBuilder = (
-  builder: string | BuilderCallback,
   builderMessage: string,
+  builder: string | BuilderCallback,
   builderOptions?: JsonObject
 ): OperatorFunction<Context, Context> => {
   return switchMap((context: Context) => {
