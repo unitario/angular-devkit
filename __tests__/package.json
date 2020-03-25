@@ -1,0 +1,9 @@
+{
+  "name": "@tests/root",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "builders",
+    "builders-app"
+  ]
+}

@@ -1,12 +1,11 @@
 {
-  "name": "builders-tests",
+  "name": "@tests/builders",
   "version": "0.0.0",
   "builders": "builders.json",
   "dependencies": {
     "@angular-devkit/architect": "^0.900.7",
     "@angular-devkit/build-angular": "^0.900.7",
     "@angular-devkit/core": "^9.0.7",
-    "@unitario/angular-devkit": "../../",
     "rxjs": "6.5.3"
   }
 }

@@ -8,6 +8,8 @@
     "declaration": true,
     "module": "commonjs",
     "esModuleInterop": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "types": [

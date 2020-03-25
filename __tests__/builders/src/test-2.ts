@@ -5,20 +5,20 @@ import { builderHandler, scheduleBuilder } from '../../../dist'
 
 export default createBuilder(
   builderHandler('Building callbacks', [
-    scheduleBuilder('Success with value', () => {
-      return { success: true }
+    scheduleBuilder('Fail with value', () => {
+      return { success: false }
     }),
-    scheduleBuilder('Success with promise', () => {
+    scheduleBuilder('Fail with promise', () => {
       return new Promise((resolve) => {
         setTimeout(() => {
-          resolve({ success: true })
+          resolve({ success: false })
         }, 0)
       })
     }),
-    scheduleBuilder('Success with observable', () => {
+    scheduleBuilder('Fail with observable', () => {
       const dispatcher$ = new ReplaySubject<BuilderOutput>()
       setTimeout(() => {
-        dispatcher$.next({ success: true })
+        dispatcher$.next({ success: false })
         dispatcher$.complete()
       }, 0)
       return dispatcher$.asObservable()

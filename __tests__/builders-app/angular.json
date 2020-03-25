@@ -15,7 +15,10 @@
       "prefix": "app",
       "architect": {
         "test-1": {
-          "builder": "builders-tests:test-1"
+          "builder": "../builders:test-1"
+        },
+        "test-2": {
+          "builder": "../builders:test-2"
         },
         "build": {
           "builder": "@angular-devkit/build-angular:browser",

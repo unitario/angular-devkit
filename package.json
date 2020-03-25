@@ -17,14 +17,12 @@
   },
   "scripts": {
     "clean": "yarn run remove && yarn run create && echo 'Clean completed'.",
+    "create": "yarn install --silent && yarn run build:package && cd __tests__ && yarn install --silent && cd .. && yarn run build:test && echo 'Create completed.'",
     "remove": "yarn run remove:package && yarn run remove:test && echo 'Remove completed.'",
-    "remove:test": "rm -f -r __tests__/builders/node_modules && rm -f -r ./__tests__/builders/dist && rm -f -r __tests__/builders-app/dist && rm -f -r __tests__/builders-app/node_modules && echo 'Test resources removed.'",
-    "remove:package": "rm -f -r ./dist && rm -f -r node_modules && echo 'Package resources removed.'",
-    "create": "yarn run create:package && yarn run build:package && yarn run create:test && yarn run build:test && echo 'Create completed.'",
-    "create:test": "cd __tests__/builders && yarn install --silent && cd ../builders-app && yarn install --silent && echo 'Test resources created'",
-    "create:package": "yarn install --silent && echo 'Package resources created.'",
-    "build": "yarn run build:package && yarn run build:test",
-    "build:test": "tsc --p ./__tests__/builders/tsconfig.json && echo 'Test project build completed.'",
+    "remove:test": "rm -f -r __tests__/node_modules __tests__/yarn.lock __tests__/builders/node_modules /__tests__/builders/dist __tests__/builders-app/dist __tests__/builders-app/node_modules __tests__/builders/yarn.lock __tests__/builders-app/yarn.lock && echo 'Test resources removed.'",
+    "remove:package": "rm -f -r dist node_modules && echo 'Package resources removed.'",
+    "build": "yarn run build:package && yarn run build:test && echo 'Build completed.'",
+    "build:test": "tsc --p ./__tests__/builders/tsconfig.json && echo 'Test build completed.'",
     "build:package": "tsc --p ./tsconfig.json && echo 'Package build completed.'",
     "test": "jest",
     "lint": "eslint **/*.ts --fix "
@@ -51,5 +49,8 @@
   "enginesStrict": true,
   "engines": {
     "node": ">=10"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }

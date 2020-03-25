@@ -2,7 +2,11 @@
   "builders": {
     "test-1": {
       "implementation": "dist/test-1",
-      "schema": "src/test-1.schema.json"
+      "schema": "src/test.schema.json"
+    },
+    "test-2": {
+      "implementation": "dist/test-2",
+      "schema": "src/test.schema.json"
     }
   }
 }
