@@ -4,7 +4,6 @@
   "description": "Software Development Kit for Angular developed by Unitario",
   "main": "dist/index.js",
   "license": "MIT",
-  "private": false,
   "homepage": "https://github.com/unitario/angular-devkit",
   "bugs": "https://github.com/unitario/angular-devkit/issues",
   "repository": {

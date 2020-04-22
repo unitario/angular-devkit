@@ -16,7 +16,7 @@
       "node",
       "ramda",
       "jest"
-    ],
+    ]
   },
   "exclude": [
     "node_modules",
