@@ -10,6 +10,26 @@ Its goal is to provide a rich set of tools to enchance the development experienc
 npm install @unitario/angular-devkit --save-dev
 ```
 
+### Development
+
+#### Build project
+
+```
+npm run clean
+```
+
+#### Test project
+
+```
+npm run test
+```
+
+#### Lint project
+
+```
+npm run lint
+```
+
 ## Tools
 
 ### Builders
@@ -68,5 +88,3 @@ export default const createHandler<Options>(
 
 export default const createBuilder<Options>(builderHandler);
 ```
-
-#### Console Output
