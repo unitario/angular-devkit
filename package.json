@@ -1,9 +1,10 @@
 {
   "name": "@unitario/angular-devkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Software Development Kit for Angular developed by Unitario",
   "main": "dist/index.js",
   "license": "MIT",
+  "private": false,
   "homepage": "https://github.com/unitario/angular-devkit",
   "bugs": "https://github.com/unitario/angular-devkit/issues",
   "repository": {
