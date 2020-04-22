@@ -14,8 +14,6 @@ import { finalizeWithValue, IS_SINGLE_CPU, toError } from '../index'
  * The global base configuration interface as shared by all builders in the application
  */
 export interface Options extends JsonObject {
-  /** Name of the project this build is targeting */
-  project: string
   /** Run build and output a detailed record of the child tasks console logs. Default is `false`. */
   verbose: boolean
 }
@@ -24,6 +22,8 @@ export interface Options extends JsonObject {
  * The builder context interface as passed through the chain of builder tasks provided to the `builderHandler`
  */
 export interface Context {
+  /** Name of the project this build is targeting */
+  project: string
   /** The assigned values of the global options, target options and user provided options. */
   options: Options & JsonObject
   /** The builder context */
@@ -64,7 +64,6 @@ export const scheduleWorker = (context: BuilderContext): Observable<BuilderOutpu
   const loader = ora()
 
   const subscription = progress$.asObservable().subscribe((progress) => {
-    console.log(progress)
     loader.indent = 2
     // eslint-disable-next-line default-case
     switch (progress.state) {
@@ -150,14 +149,14 @@ export const scheduleWorker = (context: BuilderContext): Observable<BuilderOutpu
  */
 export const builderHandler = (builderMessage: string, builders: Builders) => {
   return (options: Options, context: BuilderContext): Observable<BuilderOutput> => {
-    const project = context.target && context.target.project
+    const project = context.target && context.target.project ? context.target.project : ''
     if (!project) {
       throw new Error(`The builder '${context.builder.builderName}' could not execute. No project was found.`)
     }
 
     // Clear console from previous build
     // eslint-disable-next-line no-console
-    // console.clear()
+    console.clear()
 
     // Logs initializaton message
     context.logger.info(`\n${builderMessage} ${cyan(project)} \n`)
@@ -280,7 +279,7 @@ export const scheduleBuilder = (
     // eslint-disable-next-line consistent-return
     const getBuilderCallback = (): Observable<BuilderOutput> => {
       if (is(String, builder)) {
-        return from(context.context.scheduleBuilder(builder as string, { ...context.options, ...{ builderOptions } })).pipe(
+        return from(context.context.scheduleBuilder(builder as string, { ...{ builderOptions } })).pipe(
           switchMap((builderRun) => builderRun.output)
         )
       }

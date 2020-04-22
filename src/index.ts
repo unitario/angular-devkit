@@ -1,8 +1,8 @@
+/* eslint-disable import/no-cycle */
 import { cpus } from 'os'
 
-// eslint-disable-next-line import/no-cycle
 export { Options, Context, BuilderCallback, Builders, builderHandler, scheduleBuilder } from './builders/index'
 
-export { when, toError, finalizeWithValue } from './util'
+export { when, toError, finalizeWithValue, toPaths } from './util'
 
 export const IS_SINGLE_CPU = cpus().length === 1
