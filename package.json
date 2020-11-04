@@ -28,8 +28,8 @@
     "lint": "eslint **/*.ts --fix "
   },
   "dependencies": {
-    "@angular-devkit/architect": "^0.900.7",
-    "@angular-devkit/core": "^9.0.7",
+    "@angular-devkit/architect": "^0.1002.0",
+    "@angular-devkit/core": "^10.2.0",
     "chalk": "^3.0.0",
     "ora": "^4.0.3",
     "ramda": "^0.27.0",

@@ -1,7 +1,7 @@
-import { Architect, Target } from '@angular-devkit/architect'
+import { Architect } from '@angular-devkit/architect'
 import { WorkspaceNodeModulesArchitectHost } from '@angular-devkit/architect/node'
 import { TestingArchitectHost } from '@angular-devkit/architect/testing'
-import { logging, normalize, schema, workspaces } from '@angular-devkit/core'
+import { normalize, schema, workspaces } from '@angular-devkit/core'
 import { NodeJsAsyncHost } from '@angular-devkit/core/node'
 import * as path from 'path'
 
@@ -9,7 +9,6 @@ const workspaceRoot = path.resolve('__tests__', 'builders-app')
 
 // tslint:disable-next-line:no-big-function
 describe('Devkit Builders', () => {
-  // const filesWithErrors = { 'src/foo.ts': 'const foo = "";\n' };
   let testArchitectHost: TestingArchitectHost
   let architect: Architect
 
