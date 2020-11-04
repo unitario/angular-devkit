@@ -1,15 +1,11 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "builders-app": {
+    "builders-app-v10": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -23,7 +19,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/builders-app",
+            "outputPath": "dist/builders-app-v10",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -34,7 +30,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -72,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "builders-app:build"
+            "browserTarget": "builders-app-v10:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "builders-app:build:production"
+              "browserTarget": "builders-app-v10:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "builders-app:build"
+            "browserTarget": "builders-app-v10:build"
           }
         },
         "test": {
@@ -98,7 +94,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -120,15 +116,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "builders-app:serve"
+            "devServerTarget": "builders-app-v10:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "builders-app:serve:production"
+              "devServerTarget": "builders-app-v10:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "builders-app"
+  "defaultProject": "builders-app-v10"
 }
