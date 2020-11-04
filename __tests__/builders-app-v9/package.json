@@ -1,5 +1,5 @@
 {
-  "name": "builders-app",
+  "name": "builders-app-v9",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.2",
-    "@angular/cli": "^10.2.0",
+    "@angular/cli": "~9.0.1",
     "@angular/compiler-cli": "~9.0.1",
     "@angular/language-service": "~9.0.1",
     "@types/jasmine": "~3.5.0",
