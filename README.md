@@ -30,17 +30,23 @@ npm run test
 npm run lint
 ```
 
+#### Deploy project
+
+```
+npm run deploy
+```
+
 ## Tools
 
 ### Builders
 
-Builders allows you to develop [Angular Builders](https://angular.io/guide/cli-builder) with a streamlined interface. It aims to make the process of developing builders easier and 
+Builders allows you to develop [Angular Builders](https://angular.io/guide/cli-builder) with a streamlined interface. It aims to make the process of developing builders easier.
 
 #### What it does
 
-* Simplyfies the process for developing Angular builders
+* Simplifies the process for developing Angular builders
 * Allows you to pipe multiple builders in a single sequence
-* Minimizes your consoel logs (only logs what's important)
+* Minimizes your console logs (only logs what's important)
 
 #### Usage
 

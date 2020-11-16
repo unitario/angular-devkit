@@ -1,6 +1,6 @@
 {
   "name": "@unitario/angular-devkit",
-  "version": "10.0.0",
+  "version": "10.0.2",
   "description": "Software Development Kit for Angular developed by Unitario",
   "main": "dist/index.js",
   "license": "MIT",
@@ -24,6 +24,7 @@
     "build": "yarn run build:package && yarn run build:test && echo 'Build completed.'",
     "build:test": "tsc --p ./__tests__/builders/tsconfig.json && echo 'Test build completed.'",
     "build:package": "tsc --p ./tsconfig.json && echo 'Package build completed.'",
+    "deploy": "yarn run build && yarn publish && echo 'Deploy completed.'",
     "test": "jest --verbose",
     "lint": "eslint **/*.ts --fix "
   },
