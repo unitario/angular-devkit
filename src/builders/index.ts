@@ -1,4 +1,4 @@
-import { BuilderContext, BuilderOutput } from '@angular-devkit/architect'
+import { BuilderContext, BuilderOutput, ScheduleOptions } from '@angular-devkit/architect'
 import { JsonObject } from '@angular-devkit/core'
 import { bgGreen, bgRed, cyan, dim, inverse } from 'chalk'
 import * as cluster from 'cluster'
@@ -279,9 +279,12 @@ export const scheduleBuilder = (
     // eslint-disable-next-line consistent-return
     const getBuilderCallback = (): Observable<BuilderOutput> => {
       if (is(String, builder)) {
-        return from(context.context.scheduleBuilder(builder as string, { ...{ builderOptions } })).pipe(
-          switchMap((builderRun) => builderRun.output)
-        )
+        return from(
+          context.context.scheduleBuilder(builder as string, { ...{ builderOptions } }, ({
+            target: context.context.target,
+            logger: context.context.logger,
+          } as unknown) as ScheduleOptions)
+        ).pipe(switchMap((builderRun) => builderRun.output))
       }
       if (is(Function, builder)) {
         const builderCallbackResult = (builder as BuilderCallback)(context)
